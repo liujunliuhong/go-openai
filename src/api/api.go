@@ -7,8 +7,6 @@ import (
 	"strings"
 )
 
-const baseURL = "https://api.openai.com"
-
 type Client struct {
 	authToken string
 }
