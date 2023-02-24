@@ -5,9 +5,9 @@ import (
 	"request_handler"
 )
 
-func List(c *configuration.Configuration) (models ModeList, err error) {
+func List(c *configuration.Configuration) (response Response, err error) {
 	r := NewListModelsRequest(c)
-	err = request_handler.Perform(r, &models)
+	err = request_handler.Perform(r, &response)
 	return
 }
 

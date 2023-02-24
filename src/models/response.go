@@ -10,10 +10,6 @@ type Model struct {
 	Permission []Permission `json:"permission"`
 }
 
-type ModeList struct {
-	Models []Model `json:"data"`
-}
-
 type Permission struct {
 	Id                 string      `json:"id"`
 	Object             string      `json:"object"`
@@ -27,4 +23,8 @@ type Permission struct {
 	Organization       string      `json:"organization"`
 	Group              interface{} `json:"group"`
 	IsBlocking         bool        `json:"is_blocking"`
+}
+
+type Response struct {
+	Models []Model `json:"data"`
 }
