@@ -1,16 +1,18 @@
-package request
+package completions
 
 import (
+	"configuration"
 	"io"
 	"net/http"
+	"request"
 )
 
 // CompletionsRequest https://platform.openai.com/docs/api-reference/completions
 type CompletionsRequest struct {
-	c *Configuration
+	c *configuration.Configuration
 }
 
-func NewCompletionsRequest(c *Configuration) *CompletionsRequest {
+func NewCompletionsRequest(c *configuration.Configuration) *CompletionsRequest {
 	return &CompletionsRequest{c: c}
 }
 
@@ -19,7 +21,7 @@ func (c *CompletionsRequest) Method() string {
 }
 
 func (c *CompletionsRequest) Host() string {
-	return BaseURL
+	return request.BaseURL
 }
 
 func (c *CompletionsRequest) Path() string {

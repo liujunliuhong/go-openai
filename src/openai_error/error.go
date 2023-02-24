@@ -10,7 +10,7 @@ type APIError struct {
 }
 
 type APIErrorResponse struct {
-	Err *APIError `json:"openai_error,omitempty"`
+	Err *APIError `json:"error,omitempty"`
 }
 
 func (a *APIErrorResponse) Error() string {

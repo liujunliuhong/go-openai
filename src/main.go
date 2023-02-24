@@ -1,22 +1,23 @@
 package main
 
 import (
+	"configuration"
 	"fmt"
 	"models"
-	"request"
 )
 
 func main() {
 	fmt.Println("Hello, World")
 
-	c := request.NewConfiguration(Key)
+	c := configuration.NewConfiguration("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")
 
-	list, err := models.List(c)
+	// list, err := models.List(c)
+	model, err := models.Retrieve(c, "babbage")
 
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
-	fmt.Println(list.Models)
+	fmt.Println(model)
 
 }

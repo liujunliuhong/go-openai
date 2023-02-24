@@ -1,6 +1,7 @@
 package models
 
 import (
+	"configuration"
 	"io"
 	"net/http"
 	"request"
@@ -8,10 +9,10 @@ import (
 
 // ListModelsRequest https://platform.openai.com/docs/api-reference/models/list
 type ListModelsRequest struct {
-	c *request.Configuration
+	c *configuration.Configuration
 }
 
-func NewListModelsRequest(c *request.Configuration) *ListModelsRequest {
+func NewListModelsRequest(c *configuration.Configuration) *ListModelsRequest {
 	return &ListModelsRequest{c: c}
 }
 

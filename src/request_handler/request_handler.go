@@ -30,9 +30,8 @@ func Perform(r request.Request, v interface{}) (err error) {
 	}
 
 	if res.StatusCode != http.StatusOK {
-
 		var errorResponse openai_error.APIErrorResponse
-		err := json.NewDecoder(res.Body).Decode(&errorResponse)
+		err = json.NewDecoder(res.Body).Decode(&errorResponse)
 		if errorResponse.Err == nil && err != nil {
 			reqErr := &openai_error.RequestError{
 				StatusCode: res.StatusCode,
@@ -43,9 +42,9 @@ func Perform(r request.Request, v interface{}) (err error) {
 		if err != nil {
 			return err
 		}
-		return fmt.Errorf("newRequest error, statusCode: %d", res.StatusCode)
+		return fmt.Errorf(res.Status)
 	}
-
+	
 	err = json.NewDecoder(res.Body).Decode(&v)
 
 	return

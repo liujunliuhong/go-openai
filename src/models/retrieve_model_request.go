@@ -1,6 +1,7 @@
 package models
 
 import (
+	"configuration"
 	"fmt"
 	"io"
 	"net/http"
@@ -9,11 +10,11 @@ import (
 
 // RetrieveModelRequest https://platform.openai.com/docs/api-reference/models/retrieve
 type RetrieveModelRequest struct {
-	c       *request.Configuration
+	c       *configuration.Configuration
 	modelID string
 }
 
-func NewRetrieveModelRequest(c *request.Configuration, modelID string) *RetrieveModelRequest {
+func NewRetrieveModelRequest(c *configuration.Configuration, modelID string) *RetrieveModelRequest {
 	return &RetrieveModelRequest{c: c, modelID: modelID}
 }
 
